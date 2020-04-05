@@ -4,7 +4,10 @@ import com.helper.exceptionhelper.CommonError;
 
 /**
  * 异常枚举类
- * */
+ *
+ * @author 59575
+ * @version $Id: $Id
+ */
 public enum EmBusinessError implements CommonError {
 
     ERROR_TWO(10002,"错误2"),
@@ -23,16 +26,19 @@ public enum EmBusinessError implements CommonError {
     }
 
 
+    /** {@inheritDoc} */
     @Override
     public int getErrorCode() {
         return this.errCode;
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getErrorMsg() {
         return this.errMsg;
     }
 
+    /** {@inheritDoc} */
     @Override
     public CommonError setErrorMsg(String errMsg) {
         this.errMsg= errMsg;

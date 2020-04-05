@@ -12,11 +12,20 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
+/**
+ * <p>Constant class.</p>
+ *
+ * @author 59575
+ * @version $Id: $Id
+ */
 @Slf4j
 public class Constant {
     private static final ObjectMapper mapper = new ObjectMapper();
     /**
      * MD5通用方法
+     *
+     * @param str a {@link java.lang.String} object.
+     * @return a {@link java.lang.String} object.
      */
     public static String getMD5(String str) {
         MessageDigest md = null;
@@ -31,6 +40,10 @@ public class Constant {
 
     /**
      * 将任何对象转为String
+     *
+     * @param object a T object.
+     * @return a {@link java.lang.String} object.
+     * @param <T> a T object.
      */
     public static <T> String convert2String(T object) {
         try {
@@ -42,6 +55,9 @@ public class Constant {
 
     /**
      * 将类转map
+     *
+     * @param obj a {@link java.lang.Object} object.
+     * @return a {@link java.util.HashMap} object.
      */
     public static HashMap<String, Object> convertToMap(Object obj) {
         HashMap<String, Object> map = new HashMap<String, Object>();
