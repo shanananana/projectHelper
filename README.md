@@ -6,7 +6,7 @@ maven引入下列依赖即可快速使用
     <dependency>
         <groupId>com.github.shanananana</groupId>
         <artifactId>projectHelper</artifactId>
-        <version>2.0</version>
+        <version>2.2.2</version>
     </dependency>
     
 项目结构
