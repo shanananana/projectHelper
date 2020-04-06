@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import com.helper.businesshelper.Constant;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,16 +18,27 @@ import java.util.concurrent.TimeUnit;
  * @version $Id: $Id
  */
 @SuppressWarnings("")
+@Component
 public class RedisHelper {
 
+    private final static RedisHelper INSTANCE = new RedisHelper();
 
-    @Autowired
-    RedisTemplate redisTemplate;
+    private RedisHelper(){}
+
+    public static RedisHelper getInstance(){
+        return INSTANCE;
+    }
+
+    private RedisTemplate redisTemplate;
+
+    public void init(RedisTemplate template){
+        this.redisTemplate=template;
+    }
 
     /**
-     * <p>setModel.</p>
      *
-     * @deprecated : set一个key为String value为对象的值
+     * <p> set一个key为String value为对象的值</p>
+     *
      * @param key a {@link java.lang.String} object.
      * @param model a T object.
      * @param <T> a T object.
@@ -39,8 +51,7 @@ public class RedisHelper {
     /**
      * <p>getModel.</p>
      *
-     * @param key:String
-     * @deprecated : get一个key 并指定返回值的类类型
+     * <p>:get一个key 并指定返回值的类类型<p/>
      * @param key a {@link java.lang.String} object.
      * @param cls a {@link java.lang.Class} object.
      * @param <T> a T object.
@@ -54,10 +65,9 @@ public class RedisHelper {
 
     /**
      * <p>setString.</p>
+
+     * <p>redis的普通set功能<p/>
      *
-     * @param key:String
-     * @param value:Object
-     * @deprecated : redis的普通set功能
      * @param key a {@link java.lang.String} object.
      * @param value a {@link java.lang.Object} object.
      */

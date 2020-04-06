@@ -15,7 +15,26 @@ maven引入下列依赖即可快速使用
  
  - exceptionHelper:异常包装 支持抛出枚举 有通用枚举 亦可自定义枚举（实现CommonError接口即可）   
 
- - redisHelper:redis工具类，基于redisTemlate实现，提供更丰富的接口如set(String key,T model) model不必要序列化，亦不必要其他配置，开箱即用
+ - redisHelper:redis工具类，基于redisTemlate实现，提供更丰富的接口如set(String key,T model) model不必要序列化.
+           
+      - 使用方式： 需要在项目启动时注入redisTemplate。参考代码
+    
+            @Component
+            public class Listener implements ApplicationListener<ApplicationReadyEvent> {
+            
+                @Autowired
+                RedisTemplate redisTemplate;
+            
+                @Override
+                public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+                    RedisHelper.getInstance().init(redisTemplate);
+                }
+            
+            }
+
+      业务代码注入
+           
+           private RedisHelper redisHelper=RedisHelper.getInstance();
  
  - responseHelper:通用响应包装 提供标准的code,message,data 响应体返回。
  
