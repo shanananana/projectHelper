@@ -32,9 +32,26 @@ maven引入下列依赖即可快速使用
             
             }
 
-      业务代码注入
+      使用示例
+           
+           测试类对象
+           @Data
+           @Accessors(chain = true)
+           public class TestEntiy {
+               private String account;
+           
+               private String password;
+           }
            
            private RedisHelper redisHelper=RedisHelper.getInstance();
+           
+           public void redisTest(){
+                      TestEntiy testEntiy=new TestEntiy().setAccount("123").setPassword("456");
+                      redisHelper.setModel("entity",testEntiy);
+                      TestEntiy result= (TestEntiy) redisHelper.getModel("entity",TestEntiy.class);
+                      System.out.println(result.toString());
+                  }
+           控制台打印：TestEntiy(account=123, password=456)
  
  - responseHelper:通用响应包装 提供标准的code,message,data 响应体返回。
  
