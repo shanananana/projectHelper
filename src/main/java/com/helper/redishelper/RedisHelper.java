@@ -21,20 +21,8 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisHelper {
 
-    private final static RedisHelper INSTANCE = new RedisHelper();
-
-    private RedisHelper(){}
-
-    public static RedisHelper getInstance(){
-        return INSTANCE;
-    }
-
-    private RedisTemplate redisTemplate;
-
-    public void init(RedisTemplate template){
-        this.redisTemplate=template;
-    }
-
+    @Autowired
+    RedisTemplate redisTemplate;
     /**
      *
      * <p> set一个key为String value为对象的值</p>

@@ -17,20 +17,10 @@ maven引入下列依赖即可快速使用
 
  - redisHelper:redis工具类，基于redisTemlate实现，提供更丰富的接口如set(String key,T model) model不必要序列化.
            
-      - 使用方式： 需要在项目启动时注入redisTemplate。参考代码
+      - 使用方式： 需要在项目启动类增加扫描  
+            
+       @ComponentScan({"com.helper.redishelper","其他包"})
     
-            @Component
-            public class Listener implements ApplicationListener<ApplicationReadyEvent> {
-            
-                @Autowired
-                RedisTemplate redisTemplate;
-            
-                @Override
-                public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-                    RedisHelper.getInstance().init(redisTemplate);
-                }
-            
-            }
 
       使用示例
            
@@ -43,7 +33,8 @@ maven引入下列依赖即可快速使用
                private String password;
            }
            
-           private RedisHelper redisHelper=RedisHelper.getInstance();
+           @Autowired
+           RedisHelper redisHelper;
            
            public void redisTest(){
                       TestEntiy testEntiy=new TestEntiy().setAccount("123").setPassword("456");
