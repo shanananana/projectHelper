@@ -10,13 +10,10 @@ import com.helper.exceptionhelper.CommonError;
  */
 public enum EmBusinessError implements CommonError {
 
-    ERROR_TWO(10002,"错误2"),
-    ERROR_THREE(10003,"错误3"),
-    ERROR_FOUR(10004,"错误4"),
-
     PARAM_ERROR(400001,"参数校验异常"),
-
-    CONVERT_ERROR(500001,"对象转换失败");
+    CONVERT_ERROR(500001,"对象转换失败"),
+    PERMISSION_ERROR(500002,"权限不足"),
+    NOT_LOGIN(500003,"未登录");
 
     private int errCode;
     private String errMsg;
