@@ -6,7 +6,7 @@ maven引入下列依赖即可快速使用
     <dependency>
         <groupId>com.github.shanananana</groupId>
         <artifactId>projectHelper</artifactId>
-        <version>2.2.7</version>
+        <version>2.2.9</version>
     </dependency>
 各工具使用方式可参考：https://github.com/shanananana/demoForMybatisPlus    
     
@@ -18,10 +18,12 @@ maven引入下列依赖即可快速使用
 
  - redisHelper:redis工具类，基于redisTemlate实现，提供更丰富的接口如set(String key,T model) model不必要序列化.
            
-     
  - responseHelper:通用响应包装 提供标准的code,message,data 响应体返回。
  
  - permissionhelper: 非常易上手的简易权限框架。
+ 
+ - util: 部分工具
+   
  
  
     
@@ -80,4 +82,9 @@ maven引入下列依赖即可快速使用
      }
  可以看出此框架无需任何配置，即可快速开启鉴权功能
  
+ 
  后续会继续扩充，尽量覆盖到大多数普通java项目的常用工具，简化开发
+ 
+ 更新记录:
+ 
+ 2020/4/18: 新增基于redis的分布式锁的实现

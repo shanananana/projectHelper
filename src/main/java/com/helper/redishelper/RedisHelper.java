@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * <p>RedisHelper class.</p>
  *
- * @author 59575
+ * @author zhangjie
  * @version $Id: $Id
  */
 @SuppressWarnings("")

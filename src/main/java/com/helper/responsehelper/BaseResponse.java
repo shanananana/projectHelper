@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
+ * @author zhangjie
  *返回结果封装
  */
 @Data
